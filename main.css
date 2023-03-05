@@ -2,7 +2,7 @@ Footer {
     display: block;
 }
 
-#cmd {
+Command {
     border: none;
     dock: bottom;
     background: $accent;

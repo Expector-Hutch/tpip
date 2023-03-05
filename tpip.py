@@ -1,6 +1,8 @@
 from textual.app import App, ComposeResult
 from textual import widgets
 
+from _widgets._command import Command
+
 from pip._internal.cli.main import main as pip
 pip_cli = lambda *args: pip(list(args))
 
@@ -16,14 +18,15 @@ class TPip(App):
         """Create child widgets for the app."""
         yield widgets.Header()
         yield widgets.Footer()
-        yield widgets.Input(id='cmd')
+        yield Command()
 
     def action_quit_app(self) -> None:
         """Exit the app"""
         self.exit()
 
     def action_open_cmd(self) -> None:
-        self.query_one("Footer").display, self.query_one("#cmd").display = self.query_one("#cmd").display, self.query_one("Footer").display
+        self.query_one("Footer").display, self.query_one("Command").display = self.query_one(
+            "Command").display, self.query_one("Footer").display
 
 
 if __name__ == "__main__":
