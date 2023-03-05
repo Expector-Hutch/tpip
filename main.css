@@ -1,4 +1,11 @@
+Footer {
+    display: block;
+}
+
 #cmd {
     border: none;
     dock: bottom;
+    background: $accent;
+    color: $text;
+    display: none;
 }
